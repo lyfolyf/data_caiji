@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56C046A8-2B09-4CF7-A247-8D3B8E80FF70}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lead.Main</RootNamespace>
+    <AssemblyName>3D数据采集</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>3D采集.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\Bin\3rdLibs\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\..\Bin\3rdLibs\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevMainForm.designer.cs">
+      <DependentUpon>DevMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DevMainForm.resx">
+      <DependentUpon>DevMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tools\Lead.Tool.INI\Lead.Tool.INI.csproj">
+      <Project>{f87db85c-ccc6-4d87-a8cd-6f0f46ec2c95}</Project>
+      <Name>Lead.Tool.INI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\Lead.Tool.KeyenceLJ\Lead.Tools.KeyenceLJ.csproj">
+      <Project>{b31c4bba-f879-41e5-a224-5c60cfdf96bc}</Project>
+      <Name>Lead.Tools.KeyenceLJ</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\Lead.Tool.Logger\Lead.Tool.Log.csproj">
+      <Project>{f2580e70-8934-4e88-aec2-ce4e540c3eeb}</Project>
+      <Name>Lead.Tool.Log</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\Lead.Tool.Login\Lead.Tool.Login.csproj">
+      <Project>{17bce8b6-9aac-4dc5-b00d-30e7e8f84474}</Project>
+      <Name>Lead.Tool.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\Lead.Tool.Manager\Lead.Tool.Manager.csproj">
+      <Project>{a643fd30-3e9e-4d21-949a-4db1cb8ff004}</Project>
+      <Name>Lead.Tool.Manager</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\Lead.Tool.ProjectPath\Lead.Tool.ProjectPath.csproj">
+      <Project>{62841446-5cb1-406e-8d78-273d9e1d2536}</Project>
+      <Name>Lead.Tool.ProjectPath</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Lead.Process\Lead.Process.Interface\Lead.Process.Interface.csproj">
+      <Project>{1fd00def-edd9-4d7d-8bfd-3801592d374d}</Project>
+      <Name>Lead.Process.Interface</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Lead.Process\Lead.Process.Manager\Lead.Process.Manager.csproj">
+      <Project>{9dbd5bba-a350-4124-83a6-a7fac2e6328b}</Project>
+      <Name>Lead.Process.Manager</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Lead.Proxy\Lead.Proxy.csproj">
+      <Project>{475f11eb-b622-4dce-bf1a-d7bdfabdde79}</Project>
+      <Name>Lead.Proxy</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="3D采集.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
